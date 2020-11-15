@@ -1,20 +1,20 @@
 ﻿using FluentAssertions;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using System;
-using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace Lab6.Specs.Steps
 {
-    public class UserSearchStepDefinitions : BaseSteps
+    [Binding]
+    public class SearchStepDefinitions 
     {
-        [Given("I have navigated to website")]
-        public void UserAccessTheSite()
+        private readonly IWebDriver _webDriver;
+
+        public SearchStepDefinitions(IWebDriver webDriver)
         {
-            _webDriver.Url = Constants.BaseUrl;
+            _webDriver = webDriver;
         }
-        [Given("I have entered (.*) as search keyword")]
+
+        [Given("I have entered (.*) as a search keyword")]
         public void GivenUserInsertDataInSearch(string data)
         {
             var searchElement = _webDriver.FindElement(By.Name("search"));
@@ -36,8 +36,7 @@ namespace Lab6.Specs.Steps
         [Then("Error popup should apear")]
         public void ErrorPopUpShouldApead()
         {
-            Thread.Sleep(5000);
-            var popup = _webDriver.SwitchTo().;
+            var popup = _webDriver.FindElement(By.CssSelector("input:invalid"));
             popup.Should().NotBeNull();
         }
     }
