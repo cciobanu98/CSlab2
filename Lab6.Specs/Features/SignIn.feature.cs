@@ -111,7 +111,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I have entered SuperSecre! in password field from sign-in pop-up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 8
- testRunner.When("I press the sign-up button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I press the sign-in button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
  testRunner.Then("I should be loged in app", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
